@@ -1,4 +1,4 @@
-# tbk-淘宝客返利系统（nodejs版） 
+# tbk-淘宝客返利系统（nodejs版 v14.16.0） 
 
 ## 现有功能  
 * 支持 淘宝、京东、拼多多转链([转链服务源码](/tbk-api-server/README.md))  
