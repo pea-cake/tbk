@@ -1,5 +1,5 @@
 const config = require('../config')
-// const db_action = require('../db_action')
+const db_action = require('../wechat/db_action')
 const moment = require('moment')
 
 function getHttpString(s) {
@@ -143,75 +143,75 @@ function formatReplayStr(content) {
   return result
 }
 
-// const updateWechatFirend = function (contact) {
-//   return new Promise(async (resolve, reject) => {
-//     const contactName = contact.name()
-//     const db_obj = await db_action.connectMongo('taobaoke')
-//     let customers = await db_action.selectCustomers(db_obj, { wx_id: contact.id })
-//     if (customers.length > 0) {
-//       //客户已存在
-//       //更新last_time字段
-//       let update_user_data = {
-//         new_name: contactName,
-//         last_time: moment().format('YYYY-MM-DD HH:mm:ss'),
-//         is_friend: contact.friend(),
-//         gender: contact.gender(),
-//         city: contact.city(),
-//         province: contact.province(),
-//         from: 'wechat'
-//       }
-//       let phone = contact.phone() || contact.payload.phone
-//       if (phone && Array.isArray(phone) && phone.length > 0) {
-//         update_user_data.new_phone = phone;
-//       }
+const updateWechatFirend = function (contact) {
+  return new Promise(async (resolve, reject) => {
+    const contactName = contact.name()
+    const db_obj = await db_action.connectMongo('taobaoke')
+    let customers = await db_action.selectCustomers(db_obj, { wx_id: contact.id })
+    if (customers.length > 0) {
+      //客户已存在
+      //更新last_time字段
+      let update_user_data = {
+        new_name: contactName,
+        last_time: moment().format('YYYY-MM-DD HH:mm:ss'),
+        is_friend: contact.friend(),
+        gender: contact.gender(),
+        city: contact.city(),
+        province: contact.province(),
+        from: 'wechat'
+      }
+      let phone = contact.phone() || contact.payload.phone
+      if (phone && Array.isArray(phone) && phone.length > 0) {
+        update_user_data.new_phone = phone;
+      }
 
 
-//       let new_alias = await contact.alias()
-//       if (contact.payload.alias) {
-//         new_alias = contact.payload.alias
-//       }
-//       if (new_alias) {
-//         update_user_data.new_alias = new_alias;
-//       }
+      let new_alias = await contact.alias()
+      if (contact.payload.alias) {
+        new_alias = contact.payload.alias
+      }
+      if (new_alias) {
+        update_user_data.new_alias = new_alias;
+      }
 
-//       let avatar = await contact.avatar()
-//       if (contact.payload.avatar) {
-//         avatar = contact.payload.avatar
-//       }
-//       if (avatar) {
-//         update_user_data.avatar = avatar;
-//       }
+      let avatar = await contact.avatar()
+      if (contact.payload.avatar) {
+        avatar = contact.payload.avatar
+      }
+      if (avatar) {
+        update_user_data.avatar = avatar;
+      }
 
 
-//       let type = contact.type() || contact.payload.type
-//       if (type != '') {
-//         update_user_data.type = type;
-//       }
-//       await db_action.updateCustomer(db_obj,
-//         {
-//           "wx_id": contact.id,
-//         }, update_user_data)
-//     } else {
-//       //插入新客户
-//       await db_action.insertCustomer(db_obj, {
-//         wx_id: contact.id,
-//         name: contactName,
-//         phone: contact.phone() || contact.payload.phone,
-//         alias: contact.alias() || contact.payload.alias,
-//         avatar: contact.avatar() || contact.payload.avatar,
-//         create_time: moment().format('YYYY-MM-DD HH:mm:ss'),
-//         is_friend: contact.friend(),
-//         gender: contact.gender(),
-//         city: contact.city(),
-//         province: contact.province(),
-//         type: contact.type() || contact.payload.type,
-//         from: 'wechat',
-//       })
-//     }
-//     db_obj.conn.close()
-//     resolve()
-//   })
-// }
+      let type = contact.type() || contact.payload.type
+      if (type != '') {
+        update_user_data.type = type;
+      }
+      await db_action.updateCustomer(db_obj,
+        {
+          "wx_id": contact.id,
+        }, update_user_data)
+    } else {
+      //插入新客户
+      await db_action.insertCustomer(db_obj, {
+        wx_id: contact.id,
+        name: contactName,
+        phone: contact.phone() || contact.payload.phone,
+        alias: contact.alias() || contact.payload.alias,
+        avatar: contact.avatar() || contact.payload.avatar,
+        create_time: moment().format('YYYY-MM-DD HH:mm:ss'),
+        is_friend: contact.friend(),
+        gender: contact.gender(),
+        city: contact.city(),
+        province: contact.province(),
+        type: contact.type() || contact.payload.type,
+        from: 'wechat',
+      })
+    }
+    db_obj.conn.close()
+    resolve()
+  })
+}
 module.exports = {
   getHttpString,
   getDay,
@@ -223,5 +223,5 @@ module.exports = {
   checkIsTBOrder,
   checkIsPDDOrder,
   formatReplayStr,
-  // updateWechatFirend
+  updateWechatFirend
 };
