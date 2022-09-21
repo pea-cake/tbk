@@ -24,11 +24,18 @@ const getTKL = (url) => {
 		}, function (error, response) {
 			console.log('查询tkl_res', response)
 			if (!error) {
-				if (response && response.data && response.data.model) {
-					resolve(response.data.model)
+				let res = ''
+				if (response && response.data) {
+					if(response.data.model){
+						res = response.data.model
+					}
+					if(response.data.password_simple){
+						res =response.data.password_simple
+					}
 				} else {
-					resolve(null)
+					res = null
 				}
+				resolve(res)
 			}
 			else {
 				resolve(null)
@@ -218,7 +225,7 @@ const getLastPromotionInfo = async (goods_url) => {
 	if (result_item) {
 		// console.log('找到了===>',result_item)
 		let goods_url = 'https:'
-		if (result_item.coupon_id) {
+		if (result_item.coupon_share_url) {
 			goods_url += result_item.coupon_share_url
 		} else {
 			goods_url += result_item.url
