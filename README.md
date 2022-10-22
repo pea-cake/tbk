@@ -8,7 +8,7 @@
 
 ## 🧐🧐🧐
 * 这是一个能赚点小钱，即使不能赚钱，也能方便你省钱的系统  
-* 即将全部开源，欢迎使用，欢迎star，也期待你的添砖加瓦
+* 已全部开源，欢迎使用，欢迎star，也期待你的添砖加瓦
 * ... 
 
 ## 体验
@@ -17,7 +17,13 @@
 
 ## 展示  
 微信消息部分：  
-<img src="https://user-images.githubusercontent.com/58544092/185220186-c013651e-0640-4c22-95d6-15bf7f0de059.png" width="200px" height="400px"/> <img src="https://user-images.githubusercontent.com/58544092/185220657-78e275ed-1f36-49b6-a2f5-4dcd0c60f141.png" width="200px" height="400px"/> <img src="https://user-images.githubusercontent.com/58544092/185222647-693ffcb3-431d-4c73-bce9-7006764d65f2.png" width="200px" height="400px"/>
+<img src="https://user-images.githubusercontent.com/58544092/185220186-c013651e-0640-4c22-95d6-15bf7f0de059.png" width="200px" height="400px"/> <img src="https://user-images.githubusercontent.com/58544092/185220657-78e275ed-1f36-49b6-a2f5-4dcd0c60f141.png" width="200px" height="400px"/> <img src="https://user-images.githubusercontent.com/58544092/185222647-693ffcb3-431d-4c73-bce9-7006764d65f2.png" width="200px" height="400px"/>  
+
+管理系统截图：  
+
+![image](https://user-images.githubusercontent.com/58544092/197322244-3db634f8-fdce-491c-8339-6ea9bdfdab75.png)
+
+![image](https://user-images.githubusercontent.com/58544092/197322205-74d8f0e6-9798-43c9-af7b-a567a3144fde.png)
 ...
 
 ## 感谢
