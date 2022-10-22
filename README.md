@@ -3,7 +3,7 @@
 ## 现有功能  
 * 支持 淘宝、京东、拼多多转链([转链服务源码](/tbk-api-server/README.md))
 * 微信bot(是微信，不是公众号，当然公众号也实现了的)自动回复消息 转链、绑定订单(基于wechaty) ([微信bot源码](/wechat/README.md)) 
-* 返利系统订单管理后台（vue2、element-ui、express、mongoose...）(待开源)
+* 返利系统订单管理后台（vue2、element-ui、express、mongoose...）(已开源) ([管理后台](https://github.com/pea-cake/tbk-manage.git))
 * ...
 
 ## 🧐🧐🧐
