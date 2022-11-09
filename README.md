@@ -15,9 +15,10 @@ JDconfig: {
     appSecret: "",
 },
 TBconfig: {
-    // 阿里联盟
+    // 阿里联盟, 获取配置看这里https://github.com/pea-cake/tbk/issues/5
     appkey: "",
     appsecret: "",
+    adzone_id: "", // 推广位pid 'mm_123_456_789' 的789就是adzone_id
 },
 PDDconfig: {
     // 多多客
