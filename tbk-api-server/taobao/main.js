@@ -26,11 +26,11 @@ const getTKL = (url) => {
 			if (!error) {
 				let res = ''
 				if (response && response.data) {
-					if(response.data.model){
+					if (response.data.model) {
 						res = response.data.model
 					}
-					if(response.data.password_simple){
-						res =response.data.password_simple
+					if (response.data.password_simple) {
+						res = response.data.password_simple
 					}
 				} else {
 					res = null
@@ -115,7 +115,7 @@ const getGoodsListByKeyWord = (keyword, page = 1, page_result_key = '') => {
 			// 'material_id': '17004',
 			// 'has_coupon': 'true',
 			// 'ip':'13.2.33.4',
-			'adzone_id': '111831150070',
+			'adzone_id': config.TBconfig.adzone_id,
 			// 'need_free_shipment':'true',
 			// 'need_prepay': 'true',
 			// 'include_pay_rate_30': 'true',
@@ -270,5 +270,6 @@ const getLastPromotionInfo = async (goods_url) => {
 	}
 	return result_item
 }
+
 
 module.exports = getLastPromotionInfo

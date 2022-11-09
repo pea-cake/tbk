@@ -1,4 +1,4 @@
-const { create } = require('./mian');
+const { create } = require('./main');
 const moment = require('moment');
 const db_action = require('../../wechat/db_action')
 const { setSchedule } = require('../../schedule')

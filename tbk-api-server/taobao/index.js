@@ -1,4 +1,4 @@
-const getLink = require('./mian')
+const getLink = require('./main')
 const config = require('../../config')
 let getPromoteLink = function (tb_url) {
     return getLink(tb_url).then(res => {

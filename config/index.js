@@ -11,6 +11,7 @@ module.exports = {
         // 阿里联盟
         appkey: "",
         appsecret: "",
+        adzone_id: "", // 推广位pid 'mm_123_456_789' 的789就是adzone_id  获取链接 https://pub.alimama.com/third/manage/record/adzone.htm
     },
     PDDconfig: {
         // 多多客
