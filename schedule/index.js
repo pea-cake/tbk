@@ -1,8 +1,8 @@
-const schedule = require('node-schedule')
+const schedule = require('node-schedule');
 // date 参数
 
 // 其他规则见 https://www.npmjs.com/package/node-schedule
-// 规则参数讲解, 规则类似 Linux 下的 crontab ('*'代表通配符) 
+// 规则参数讲解, 规则类似 Linux 下的 crontab ('*'代表通配符)
 //
 // *  *  *  *  *  *
 // ┬ ┬ ┬ ┬ ┬ ┬
@@ -33,9 +33,9 @@ const schedule = require('node-schedule')
 // 每6小时触发一次: '0 0 */6 * * *'
 
 function setSchedule(date, callback) {
-    schedule.scheduleJob({ tz: 'Asia/Shanghai', rule: date }, callback)
+    schedule.scheduleJob({ tz: 'Asia/Shanghai', rule: date }, callback);
 }
 
 module.exports = {
-    setSchedule
-}
+    setSchedule,
+};

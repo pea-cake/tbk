@@ -1,2 +1,3 @@
-const {updateOrders} = require('./index')
-updateOrders()
+const { updateOrders } = require('./index');
+
+updateOrders();

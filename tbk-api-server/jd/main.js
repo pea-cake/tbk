@@ -1,13 +1,11 @@
-const sign = require('./src/sign')
-const request = require('./src/request')
-const client = require('./src/client')
+const sign = require('./src/sign');
+const request = require('./src/request');
+const Client = require('./src/client');
 
-const create = (obj = {}) => {
-  return new client(obj)
-}
+const create = (obj = {}) => new Client(obj);
 
 module.exports = {
-  sign,
-  request,
-  create
-}
+    sign,
+    request,
+    create,
+};
