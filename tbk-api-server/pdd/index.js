@@ -95,6 +95,9 @@ const getGoodsDetail = function (goods_sign) {
 
 const getPromoteLink = async function (source_url) {
     const links = await getLink(source_url);
+    if (!links) {
+        return Promise.resolve('该宝贝暂无优惠');
+    }
     const goods_sign = getUrlParamValByKey(links.url, 'goods_sign');
     if (!goods_sign) {
         return Promise.resolve('该宝贝暂无优惠');

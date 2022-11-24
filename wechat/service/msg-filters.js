@@ -15,7 +15,7 @@ function emptyMsg() {
 }
 
 function officialMsg() {
-    // console.log('字符超200字符，无效或官方消息，不做回复')
+    console.log('无效或官方消息，不做回复');
     return [{ type: 1, content: '', url: '' }];
 }
 

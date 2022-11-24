@@ -56,7 +56,7 @@ async function filterFriendMsg(that, contact, msg) {
         const avatar = await contact.avatar();
         const resArray = [
             { bool: msg === '', method: 'emptyMsg' },
-            { bool: msg.includes(DELETEFRIEND) || WEIXINOFFICIAL.includes(name) || msg.length > 1000, method: 'officialMsg' },
+            { bool: msg.includes(DELETEFRIEND) || WEIXINOFFICIAL.includes(name), method: 'officialMsg' },
             { bool: msg.includes(NEWADDFRIEND), method: 'newFriendMsg' },
             { bool: msg.startsWith(REMINDKEY), method: 'scheduleJobMsg' },
             { bool: isIncludes(SHOP_SITES, msg), method: 'searchPromoteLink' },
