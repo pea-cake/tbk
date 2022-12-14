@@ -66,17 +66,26 @@
 
 ### 部署
 
-* docker方式
-    1. 已经安装docker
-    2. 完成配置（config/index.js）
-    3. 执行以下命令
+## docker
 
-        ```bash
-        docker build -t tbk:v1 .
-        docker run -it tbk:v1 /bin/bash
-        ```
+1. 已经安装docker
+2. 完成配置（config/index.js）
+3.  
+    * DockerFile  
 
-    4. 扫码登录微信即可
+    ```bash
+    docker build -t tbk:v1 .
+    docker run -it tbk:v1 /bin/bash
+    ```
+
+    * docker远程仓库  
+
+    ```bash
+    docker pull peacaker/tbk:1.0.0
+    docker run -it peacaker/tbk:1.0.0 /bin/bash
+    ```
+
+4. 扫码登录微信即可
 
 ## 🧐🧐🧐
 

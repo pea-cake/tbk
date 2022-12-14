@@ -39,7 +39,7 @@ module.exports = {
             replys: [{ type: 1, content: `我是购物您的小助手,${msgs.useMsg}`, url: '' }],
         },
     ],
-    heartService: {
+    heartService: { // 检测登录状态，暂时先别用了，容易封号提醒
         SENDDATE: '00 00 * * * *', // 定时发送时间 每小时发送一次，规则见 /schedule/index.js
         vx: '', // 微信心跳发送人，微信号或昵称
     },
