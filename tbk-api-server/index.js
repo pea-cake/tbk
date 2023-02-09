@@ -17,7 +17,8 @@ http.createServer(async (request, response) => {
     let responseData = {};
     const goal_url = getHttpString(params.url);
     if (goal_url.indexOf('tb.cn') != -1 || goal_url.indexOf('taobao.com') != -1) {
-        const res = await taobaoSDK.getPromoteLink(goal_url);
+        // 未处理的url参数直接传入，主要就是'「'和'」'之间的关键词，如'「绿联八类网线万兆cat8七类7六6类千兆超家用宽带电脑路由器网络线」'
+        const res = await taobaoSDK.getPromoteLink(params.url);
         if (res) {
             responseData = res;
         }
