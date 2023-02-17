@@ -1,4 +1,3 @@
-const axios = require("axios");
 const TopClient = require("./lib/api/topClient");
 const config = require("../../config");
 
@@ -259,8 +258,10 @@ const getLastPromotionInfo = async (into_goods_url) => {
     let goods_url = "https:";
     if (result_item.coupon_share_url) {
         goods_url += result_item.coupon_share_url;
-    } else {
+    } else if (result_item.url) {
         goods_url += result_item.url;
+    } else {
+        return null;
     }
     const tkl_info = await getTKL(goods_url);
     result_item.tkl_info = tkl_info || null;
