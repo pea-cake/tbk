@@ -91,8 +91,8 @@ const getGoodsDetail = (id) => new Promise((resolve, reject) => {
                 // eslint-disable-next-line max-len
                 if (
                     response.results
-                        && Array.isArray(response.results.n_tbk_item)
-                        && response.results.n_tbk_item.length > 0
+                    && Array.isArray(response.results.n_tbk_item)
+                    && response.results.n_tbk_item.length > 0
                 ) {
                     resolve(response.results.n_tbk_item[0]);
                 } else {
@@ -197,8 +197,7 @@ const getGoodsListByKeyWord = (keyword, page = 1, page_result_key = "") =>
                 }
             },
         );
-    })
-;
+    });
 
 /**
  * 从链接里提取参数值
@@ -234,9 +233,13 @@ const httpString = (s) => {
     }
     return res;
 };
-
 const getLastPromotionInfo = async (into_goods_url) => {
-    const keyword = into_goods_url.match(/「(\S*)」/)[1];
+    let keyword = '';
+    try {
+        keyword = into_goods_url.match(/「([\S|\s]*)」/)[1];
+    } catch (error) {
+        return null;
+    }
     let result_item = null;
     let is_err = false;
     const jsonData = await getGoodsListByKeyWord(keyword).catch((err) => {
@@ -249,8 +252,42 @@ const getLastPromotionInfo = async (into_goods_url) => {
     const my_goods_list = jsonData.map_data;
     const total = jsonData.total_results;
     console.log("总数", total);
+    console.log(my_goods_list)
     if (Array.isArray(my_goods_list) && my_goods_list.length > 0) {
-        result_item = my_goods_list[0];
+        my_goods_list.some((item) => {
+            if (item.title === keyword) {
+                result_item = my_goods_list[0];
+                return true;
+            }
+        });
+    }
+    if (!result_item) {
+        let pages = 1;
+        if (total > 100) {
+            pages = Math.ceil(total / 100);
+        }
+        if (pages > 10) {
+            pages = 10;
+        }
+        if (pages > 1) {
+            for (let i = 2; i <= pages; i += 1) {
+                let is_continue = false;
+                const res = await getGoodsListByKeyWord(keyword, i).catch((err) => {
+                    is_continue = true;
+                });
+                if (!is_continue && res && res.map_data && res.map_data.length > 0) {
+                    res.map_data.some((item) => {
+                        if (item.title === keyword) {
+                            result_item = my_goods_list[0];
+                            return true;
+                        }
+                    });
+                    if (result_item) {
+                        break;
+                    }
+                }
+            }
+        }
     }
     if (!result_item) {
         return null;
