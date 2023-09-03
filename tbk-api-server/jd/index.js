@@ -174,6 +174,7 @@ const getPromotionReply = async (url) => {
         rate = goods_detail.commisionRatioWl;
     }
     const money = Number(price * (rate / 100) * config.RAKE).toFixed(2);
+    resultData.price = price;
     if (money > 0) {
         resultData.money = money;
         result += `福利购 🧧🧧🧧 该商品有补贴${money}元 🧧🧧🧧`;

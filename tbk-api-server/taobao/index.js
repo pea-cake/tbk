@@ -20,6 +20,7 @@ const getPromoteLink = function (tb_url) {
                     resultData.money = money;
                 }
             }
+            resultData.price = parseFloat(res.zk_final_price) - parseFloat(res.coupon_amount || 0);
             return resultData;
         }
         return null;
